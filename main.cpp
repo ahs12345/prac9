@@ -34,14 +34,21 @@ int main()
     queue<int> digitQueue;
     stack<char> operatorStack;
 
+    bool seenPrefix = false;
+    bool seenInt = false;
     cout << "Input: ";
     while (cin >> input){
         if (isdigit(input[0])){
+            if (!seenPrefix){
+                cout << "Error";
+                return 0;
+            }
             int intInput = atoi(&(input[0]));
             digitQueue.push(intInput);
 
         }
         else if (input[0] == '+' || input[0] == '-' || input[0] == '*' || input[0] == '/'){
+            seenPrefix = true;
             operatorStack.push(input[0]);
         }
 
