@@ -52,25 +52,12 @@ int main()
     }
 
 
-    if (digitQueue.size() - operatorStack.size() != 1){
-        cout << "Error";
-    }
-    /*
-    else {
-    while (!digitQueue.empty()) {
-        cout << ' ' << digitQueue.front();
-        digitQueue.pop();
-        }
-    
-    cout << endl;
 
-        while (!operatorStack.empty()) {
-        cout << ' ' << operatorStack.top();
-        operatorStack.pop();
-        }
-    
+    if (digitQueue.size() - operatorStack.size() != 1 || digitQueue.size() == 0){
+        cout << "Error";
+        return 0;
     }
-    */
+    
 
    float sum = 0;
    if (operatorStack.size() > 1) {
@@ -123,5 +110,7 @@ int main()
     else{
         cout << digitQueue.front() << " = " << digitQueue.front();
     }
+
+
     return 0;
 }
