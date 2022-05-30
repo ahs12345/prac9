@@ -108,7 +108,8 @@ int main()
         cout << " = " << sum; 
     }
     else{
-        cout << digitQueue.front() << " = " << digitQueue.front();
+        //cout << digitQueue.front() << " = " << digitQueue.front();
+        cout << "Error";
     }
 
 
