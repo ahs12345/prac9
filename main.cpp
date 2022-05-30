@@ -33,23 +33,28 @@ int main()
     string input;  
     queue<int> digitQueue;
     stack<char> operatorStack;
-
-    bool seenPrefix = false;
     bool seenInt = false;
+    bool seenOpp = false;
+
     cout << "Input: ";
     while (cin >> input){
         if (isdigit(input[0])){
-            if (!seenPrefix){
+            if (!seenOpp){
                 cout << "Error";
-                return 0;
+                return 1;
             }
             int intInput = atoi(&(input[0]));
             digitQueue.push(intInput);
+            seenInt = true;
 
         }
         else if (input[0] == '+' || input[0] == '-' || input[0] == '*' || input[0] == '/'){
-            seenPrefix = true;
+            if (seenInt){
+                cout << "Error";
+                return 2;
+            }
             operatorStack.push(input[0]);
+            seenOpp = true;
         }
 
         if (cin.get() == '\n'){
@@ -121,3 +126,4 @@ int main()
 
     return 0;
 }
+
